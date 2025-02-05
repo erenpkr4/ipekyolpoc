@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EY Moda AI Asistanı</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/ey-logo.png') }}" alt="EY Logo" class="logo ey-logo">
+            <img src="{{ url_for('static', filename='images/ipekyol-logo.png') }}" alt="IPEKYOL Logo" class="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <section class="chart-section">
+            <!-- Sales Graph -->
+            <div class="sales-graph">
+                <h2>Satış Grafiği</h2>
+                <div class="graph-container">
+                    {{ sales_graph | safe }}
+                </div>
+            </div>
+
+            <!-- Design Info -->
+            <div class="design-info">
+                <h2>Tasarım Detayları</h2>
+                <div class="design-container">
+                    <div class="design-image">
+                        <img src="{{ url_for('static', filename='images/coat-design.jpg') }}" alt="Kış Mont Tasarımı">
+                    </div>
+                    <div class="design-specs">
+                        <h3>Ürün Özellikleri</h3>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Malzeme</span>
+                                <span class="spec-value">%70 Yün, %25 Kaşmir, %5 Elastan</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Ana Renk</span>
+                                <span class="spec-value">Karamel Bej</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Stil</span>
+                                <span class="spec-value">Oversize Kesim</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Uzunluk</span>
+                                <span class="spec-value">Midi Boy (90cm)</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Özellikler</span>
+                                <span class="spec-value">Çift Sıra Düğme, Kemer Detaylı</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Sezon</span>
+                                <span class="spec-value">Sonbahar/Kış 2024-25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chat-section">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Mesajınızı yazın..." id="messageInput">
+                <button id="sendButton">Gönder</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
